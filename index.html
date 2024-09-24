@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOTUS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <header>
+        <h1>MOTUS</h1>
+        <form id="userForm"></form>
+        <span id="playerName"></span>
+        <span id="attempts"></span>
+    </header>
+
+    <main>
+        <section id="game">
+            <article>
+                <button id="newWordBtn"></button>
+                <h2>Devinez le mot</h2>
+                <div id="wordToGuess"></div>
+                <button id="checkBtn"></button>
+            </article>
+            <article>
+                <div id="result"></div>
+                <div id="error"></div>
+                <div id="attemptsContainer"></div>
+            </article>
+
+            <article id="scores"></article>
+        </section>
+    </main>
+
+    <footer>
+        <article>  
+            <h3>Comment jouer ?</h3>
+            <p>Le but du jeu est de trouver un mot en un maximum de 6 essais. <br> A chaque essai, le jeu vous indique si la lettre est présente dans le mot et si elle est bien placée.</p>
+        </article>  
+        <article>   
+            <h3>Légende</h3>
+            <ul>
+                <li>🔴 : Lettre non présente</span>
+                <li>🟢 : Lettre présente et bien placée</span>
+                <li>🟠 : Lettre présente mais mal placée</span>
+            </ul>
+        </article>
+    </footer>
+        
+
+</body>
+
+
+</html>
+
+<script type="module">
+    import {Game} from './Game.js';
+    async function setupGame() {
+        let gameInstance = new Game();
+        await gameInstance.newGame();
+    }
+    setupGame();
+</script>
